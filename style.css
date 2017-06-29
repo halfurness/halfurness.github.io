@@ -35,12 +35,16 @@ div.menuSelection:hover {
 }
 
 body {
-    height: 1000px;
     background: linear-gradient(270deg, #2da4db, #ee2b99);
     background-size: 400% 400%;
     -webkit-animation: AnimationName 30s ease infinite;
     -moz-animation: AnimationName 30s ease infinite;
     animation: AnimationName 30s ease infinite;
+}
+
+html, 
+body {
+    height: 100%;
 }
 
 @-webkit-keyframes AnimationName {
