@@ -1,5 +1,60 @@
 .header {
-    color: blue;
-    width: 80%;
-    margin-left: 10%;
+    color: white;
+    font-size: 30px;
+    font-family: 'Arimo', sans-serif;
+    width: 100%;
+}
+
+
+
+#topBar {
+    height: 45px;
+}
+
+#selections {
+    float: right;
+}
+
+div.line {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+}
+
+
+div.menuSelection {
+    float: left;
+    color: white;
+    font-size: 20px;
+    font-family: 'Arimo', sans-serif;
+    margin-left: 20px;
+}
+
+div.menuSelection:hover {
+    text-decoration: underline;
+}
+
+body {
+    height: 1000px;
+    background: linear-gradient(270deg, #2da4db, #ee2b99);
+    background-size: 400% 400%;
+    -webkit-animation: AnimationName 30s ease infinite;
+    -moz-animation: AnimationName 30s ease infinite;
+    animation: AnimationName 30s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes AnimationName { 
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
 }
