@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hal Furness</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="hub.css">
+</head>
+<body>
+    <main class="hub">
+        <header class="hub-header">
+            <h1>Hal Furness</h1>
+            <p>Software engineer, I build stuff</p>
+        </header>
+        <div class="project-grid">
+            <a href="https://chromewebstore.google.com/detail/spreadsheet-pro/mfaddbabdmpikbcimagokbdkhiomoipn" class="project-card" target="_blank" rel="noopener noreferrer">
+                <div class="project-icon sheets-icon-bg">
+                    <img src="/spreadsheet-pro-icon.png" alt="Spread Sheet Pro" class="sheets-icon-img">
+                </div>
+                <div class="project-info">
+                    <h2>Spread Sheet Pro</h2>
+                    <p>Chrome extension to increase productivity in Google Sheets</p>
+                </div>
+                <span class="material-icons platform-icon" title="Chrome Extension">extension</span>
+                <span class="material-icons project-arrow">open_in_new</span>
+            </a>
+            <div class="project-card disabled">
+                <img src="/crumble/icon.png" alt="Crumble" class="project-icon">
+                <div class="project-info">
+                    <h2>Crumble</h2>
+                    <p>Recipe manager on Android & web</p>
+                </div>
+                <div class="platform-icons">
+                    <span class="material-icons platform-icon" title="Android">android</span>
+                    <span class="material-icons platform-icon" title="Web">language</span>
+                </div>
+                <span class="badge">Coming soon</span>
+            </div>
+            <div class="project-card disabled">
+                <span class="material-icons project-icon-placeholder">local_gas_station</span>
+                <div class="project-info">
+                    <h2>Fuelscout</h2>
+                    <p>UK fuel price finder for Android</p>
+                </div>
+                <span class="material-icons platform-icon" title="Android">android</span>
+                <span class="badge">Coming soon</span>
+            </div>
+            <div class="project-card disabled">
+                <svg class="project-icon" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="56" height="56" rx="12" fill="#000"/>
+                    <rect x="4" y="4" width="48" height="48" rx="8" fill="none" stroke="#d946ef" stroke-width="3"/>
+                    <text x="28" y="34" text-anchor="middle" font-family="'Courier New', monospace" font-size="20" font-weight="bold" fill="#e2dff0">TW</text>
+                </svg>
+                <div class="project-info">
+                    <h2>TreeWork</h2>
+                    <p>Terminal UI for git worktree management, built in Go</p>
+                </div>
+                <span class="material-icons platform-icon" title="CLI tool">terminal</span>
+                <span class="badge">Coming soon</span>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

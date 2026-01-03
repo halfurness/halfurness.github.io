@@ -1,0 +1,175 @@
+:root {
+    --bg: #0d0b1a;
+    --surface: #161229;
+    --border: #231e3d;
+    --text: #e2dff0;
+    --muted: #7a749b;
+    --accent: #4ade80;
+    --accent-hover: #22c55e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    min-height: 100vh;
+}
+
+.hub {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 64px 24px;
+}
+
+.hub-header {
+    margin-bottom: 48px;
+}
+
+.hub-header h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.hub-header p {
+    font-size: 16px;
+    color: var(--muted);
+}
+
+.project-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.project-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.project-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-1px);
+}
+
+.project-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+
+.sheets-icon-bg {
+    background:
+        repeating-linear-gradient(
+            to right,
+            transparent,
+            transparent 13px,
+            rgba(189, 211, 182, 0.15) 13px,
+            rgba(189, 211, 182, 0.15) 14px
+        ),
+        repeating-linear-gradient(
+            to bottom,
+            transparent,
+            transparent 13px,
+            rgba(189, 211, 182, 0.15) 13px,
+            rgba(189, 211, 182, 0.15) 14px
+        ),
+        #1a2e1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.sheets-icon-img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+}
+
+.project-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.project-info h2 {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.project-info p {
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.project-icon-placeholder {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--border);
+    color: var(--muted);
+    font-size: 28px;
+}
+
+.project-arrow {
+    color: var(--accent);
+    flex-shrink: 0;
+}
+
+.project-card.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: default;
+}
+
+.platform-icons {
+    display: flex;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.platform-icon {
+    font-size: 20px;
+    color: var(--muted);
+}
+
+.badge {
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 100px;
+    background: var(--border);
+    color: var(--muted);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+    .hub {
+        padding: 40px 16px;
+    }
+
+    .hub-header h1 {
+        font-size: 28px;
+    }
+}
