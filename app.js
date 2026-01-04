@@ -273,7 +273,7 @@ function createRecipeCard(recipe) {
     card.className = 'recipe-card';
     card.addEventListener('click', () => navigateTo(`recipe/${recipe.uuid}`));
 
-    const totalTime = (recipe.prepTimeMinutes || 0) + (recipe.cookTimeMinutes || 0);
+    const totalTime = (recipe.prep_time_minutes || 0) + (recipe.cook_time_minutes || 0);
     const tags = recipe.tags ? recipe.tags.split(',').map(t => t.trim()).filter(t => t) : [];
 
     card.innerHTML = `
@@ -313,7 +313,7 @@ function showRecipeDetail(recipe, updateHash = true) {
         window.location.hash = `recipe/${recipe.uuid}`;
     }
 
-    const totalTime = (recipe.prepTimeMinutes || 0) + (recipe.cookTimeMinutes || 0);
+    const totalTime = (recipe.prep_time_minutes || 0) + (recipe.cook_time_minutes || 0);
     const tags = recipe.tags ? recipe.tags.split(',').map(t => t.trim()).filter(t => t) : [];
 
     detailContent.innerHTML = `
@@ -328,8 +328,8 @@ function showRecipeDetail(recipe, updateHash = true) {
                     ${escapeHtml(recipe.title)}
                 </h2>
                 <div class="detail-header-meta">
-                    ${recipe.prepTimeMinutes ? `<span><span class="material-icons">hourglass_top</span>Prep: ${recipe.prepTimeMinutes} min</span>` : ''}
-                    ${recipe.cookTimeMinutes ? `<span><span class="material-icons">local_fire_department</span>Cook: ${recipe.cookTimeMinutes} min</span>` : ''}
+                    ${recipe.prep_time_minutes ? `<span><span class="material-icons">hourglass_top</span>Prep: ${recipe.prep_time_minutes} min</span>` : ''}
+                    ${recipe.cook_time_minutes ? `<span><span class="material-icons">local_fire_department</span>Cook: ${recipe.cook_time_minutes} min</span>` : ''}
                     ${totalTime > 0 ? `<span><span class="material-icons">schedule</span>Total: ${totalTime} min</span>` : ''}
                     ${recipe.servings ? `<span><span class="material-icons">people</span>${recipe.servings} servings</span>` : ''}
                 </div>
@@ -416,8 +416,8 @@ function generateShareText(recipe) {
         text += `${recipe.description}\n\n`;
     }
 
-    const totalTime = (recipe.prepTimeMinutes || 0) + (recipe.cookTimeMinutes || 0);
-    text += `Prep: ${recipe.prepTimeMinutes || 0} min | Cook: ${recipe.cookTimeMinutes || 0} min | Servings: ${recipe.servings || 1}\n`;
+    const totalTime = (recipe.prep_time_minutes || 0) + (recipe.cook_time_minutes || 0);
+    text += `Prep: ${recipe.prep_time_minutes || 0} min | Cook: ${recipe.cook_time_minutes || 0} min | Servings: ${recipe.servings || 1}\n`;
 
     if (recipe.category) {
         text += `Category: ${recipe.category}\n`;
