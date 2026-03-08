@@ -4,14 +4,16 @@ Personal project hub hosted via GitHub Pages.
 
 ## Projects
 
-- **[Bakify](/bakify/)** — Web viewer for Bakify recipes
+- **[Crumble](/crumble/)** — Web viewer for Crumble recipes
+- **Crumble** — Recipe manager for Android (coming soon)
+- **Fuelscout** — UK fuel price finder for Android (coming soon)
 
 ## Structure
 
 ```
 index.html      Hub homepage
 hub.css         Homepage styles
-bakify/         Bakify web app
+crumble/        Crumble web app
   index.html
   app.js
   styles.css
@@ -24,7 +26,7 @@ bakify/         Bakify web app
 2. Add an `index.html` and any assets inside it
 3. Add a project card to the root `index.html`
 
-## Bakify Setup
+## Crumble Web Setup
 
 ### OAuth Client
 
@@ -33,11 +35,11 @@ In Google Cloud Console (same project as the Android app):
 1. Go to **APIs & Services > Credentials**
 2. Click **Create Credentials > OAuth client ID**
 3. Select **Web application**
-4. Name: "Bakify Web"
+4. Name: "Crumble Web"
 5. Add Authorized JavaScript origins:
    - `https://halfurness.com`
    - `http://localhost:8000` (for local testing)
-6. Copy the **Client ID** into `bakify/app.js`
+6. Copy the **Client ID** into `crumble/app.js`
 
 ### Local Testing
 

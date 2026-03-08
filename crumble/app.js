@@ -1,12 +1,12 @@
-// Bakify Web - Recipe Viewer
+// Crumble Web - Recipe Viewer
 // Reads recipes from Google Drive backup created by the Android app
 
 const CONFIG = {
     // Replace with your Web OAuth Client ID from Google Cloud Console
     CLIENT_ID: '832233891140-tjhcm0u226tn7u8kft23epkgt42se7hb.apps.googleusercontent.com',
     SCOPES: 'https://www.googleapis.com/auth/drive.readonly',
-    BACKUP_FOLDER_NAME: 'Bakify Backups',
-    BACKUP_FILE_NAME: 'bakify_backup.json'
+    BACKUP_FOLDER_NAME: 'Crumble Backups',
+    BACKUP_FILE_NAME: 'crumble_backup.json'
 };
 
 // State
@@ -48,7 +48,7 @@ function init() {
     window.addEventListener('hashchange', handleRoute);
 
     // Check for existing session
-    const savedToken = sessionStorage.getItem('bakify_token');
+    const savedToken = sessionStorage.getItem('crumble_token');
     if (savedToken) {
         accessToken = savedToken;
         showMainScreen();
@@ -89,7 +89,7 @@ function handleSignIn() {
         callback: (response) => {
             if (response.access_token) {
                 accessToken = response.access_token;
-                sessionStorage.setItem('bakify_token', accessToken);
+                sessionStorage.setItem('crumble_token', accessToken);
                 showMainScreen();
                 loadRecipes();
             }
@@ -103,7 +103,7 @@ function handleSignOut() {
         google.accounts.oauth2.revoke(accessToken);
     }
     accessToken = null;
-    sessionStorage.removeItem('bakify_token');
+    sessionStorage.removeItem('crumble_token');
     recipes = [];
     filteredRecipes = [];
     showSignInScreen();
@@ -142,7 +142,7 @@ async function loadRecipes() {
         const folderData = await folderResponse.json();
 
         if (!folderData.files || folderData.files.length === 0) {
-            showEmpty('No backup found. Create a backup in the Bakify app first.');
+            showEmpty('No backup found. Create a backup in the Crumble app first.');
             return;
         }
 
@@ -435,7 +435,7 @@ function generateShareText(recipe) {
         text += `\nSource: ${recipe.source}\n`;
     }
 
-    text += `\n— Shared from Bakify`;
+    text += `\n— Shared from Crumble`;
 
     return text;
 }
