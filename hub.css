@@ -114,6 +114,17 @@ body {
     cursor: default;
 }
 
+.platform-icons {
+    display: flex;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.platform-icon {
+    font-size: 20px;
+    color: var(--muted);
+}
+
 .badge {
     font-size: 12px;
     padding: 4px 10px;
