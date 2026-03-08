@@ -1,47 +1,47 @@
-# Bakify Web
+# halfurness.com
 
-Web viewer for Bakify recipes. Sign in with Google to view recipes backed up from the Android app.
+Personal project hub hosted via GitHub Pages.
 
-## Setup
+## Projects
 
-### 1. Create Web OAuth Client
+- **[Bakify](/bakify/)** — Web viewer for Bakify recipes
 
-In your Google Cloud Console (same project as the Android app):
+## Structure
+
+```
+index.html      Hub homepage
+hub.css         Homepage styles
+bakify/         Bakify web app
+  index.html
+  app.js
+  styles.css
+  icon.png
+```
+
+## Adding a new project
+
+1. Create a new directory (e.g., `my-project/`)
+2. Add an `index.html` and any assets inside it
+3. Add a project card to the root `index.html`
+
+## Bakify Setup
+
+### OAuth Client
+
+In Google Cloud Console (same project as the Android app):
 
 1. Go to **APIs & Services > Credentials**
 2. Click **Create Credentials > OAuth client ID**
 3. Select **Web application**
 4. Name: "Bakify Web"
 5. Add Authorized JavaScript origins:
-   - `https://halfurness.dev`
+   - `https://halfurness.com`
    - `http://localhost:8000` (for local testing)
-6. Click **Create**
-7. Copy the **Client ID**
+6. Copy the **Client ID** into `bakify/app.js`
 
-### 2. Update app.js
-
-Replace the placeholder in `app.js`:
-
-```javascript
-const CONFIG = {
-    CLIENT_ID: 'your-actual-client-id.apps.googleusercontent.com',
-    ...
-};
-```
-
-### 3. Local Testing
+### Local Testing
 
 ```bash
 python3 -m http.server 8000
 # Open http://localhost:8000
 ```
-
-## Features
-
-- Google Sign-In to access Drive backup
-- Grid/List view toggle
-- Search by title, ingredients, category, tags
-- Filter by category
-- Full recipe detail view with images
-- Share recipes
-- Dark mode support (follows system preference)
