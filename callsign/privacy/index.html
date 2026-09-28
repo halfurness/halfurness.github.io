@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callsign — Privacy Policy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/hub.css">
+    <style>
+        .doc { max-width: 720px; margin: 0 auto; padding: 64px 24px; }
+        .doc h1 { font-size: 36px; font-weight: 700; margin-bottom: 4px; }
+        .doc .sub { color: var(--muted); font-size: 16px; margin-bottom: 40px; }
+        .doc h2 { font-size: 20px; font-weight: 700; margin: 40px 0 12px; }
+        .doc p { margin-bottom: 14px; }
+        .doc ul { margin: 0 0 14px 20px; }
+        .doc li { margin-bottom: 8px; }
+        .doc a { color: var(--accent); }
+        .doc .note {
+            border-left: 3px solid var(--border);
+            background: var(--surface);
+            padding: 14px 18px;
+            margin: 18px 0;
+            color: var(--muted);
+        }
+        .doc footer { margin-top: 56px; color: var(--muted); font-size: 14px; }
+    </style>
+</head>
+<body>
+<main class="doc">
+    <h1>Callsign</h1>
+    <p class="sub">Privacy policy · last updated 28 September 2026</p>
+
+    <p>Callsign is an Android app for the Nothing Phone (4a). It gives each of the six squares on the
+        Glyph Bar a rule naming one or more people. When one of those people messages you, that square
+        lights up until you deal with the notification.</p>
+    <p>This policy describes Callsign as it is actually built, not how apps of this kind usually work.
+        It is published by Hal Furness.</p>
+
+    <h2>The short version</h2>
+    <ul>
+        <li>Deciding which square to light happens entirely on your phone.</li>
+        <li>Callsign never reads the body of a message, and never sends anything about your
+            notifications anywhere.</li>
+        <li>There are no accounts and no server of ours.</li>
+        <li>The app does make two kinds of request to Google: asking Google Play what you have bought,
+            and — unless you have bought Pro — requesting ads. The advertising one collects a
+            substantial amount about your device. It is listed in full below.</li>
+    </ul>
+
+    <h2>Notification access: what Callsign reads</h2>
+    <p>To light a square, Callsign needs to know who a notification is from. You grant that in
+        Android's own Settings, under notification access. Until you do, the app does nothing with your
+        notifications at all.</p>
+    <p>Be clear about what that permission is. Android hands a notification listener the
+        <em>whole</em> of every notification your phone shows, and lets it dismiss them. That is true
+        of any app you grant it to. What matters is what the app then does. Callsign reads only these
+        fields and ignores the rest:</p>
+    <ul>
+        <li>The sender's name, from the messaging fields apps attach to a notification — the name on
+            the most recent message in a thread, and any people the app listed on it.</li>
+        <li>If the app posted no sender information, the notification title, expanded title or
+            conversation title, as a fallback. This fallback applies to notifications from any app, so
+            a name on a square can in principle be matched against something like an email subject
+            line or a headline.</li>
+        <li>The package name of the app that posted it, so a square can be limited to one app.</li>
+        <li>A few technical flags, used to skip notifications that are ongoing (a music player, a
+            download) or that are only a summary of a group.</li>
+    </ul>
+    <p><strong>Callsign never reads the message body.</strong> No code in the app looks at the text of
+        a message. Because Android hands over the whole notification, the text does pass through the
+        app's memory in the moment it is delivered — it is simply never read, stored, logged or sent
+        anywhere.</p>
+
+    <h2>What happens to a notification</h2>
+    <p>The sender's name is compared, in memory, with the names on your squares. The comparison is
+        case-insensitive and matches partial names, so a square for "Sam" will also match "Samantha".
+        The lowest-numbered matching square wins.</p>
+    <p>The result of that comparison is one thing: a square number. Nothing is written to storage, and
+        no sender name or notification content is ever written to the Android log. The app logs only
+        technical messages about the Glyph connection, Google Play and the ad bar.</p>
+    <p>While a matched notification is still showing, Callsign holds its Android notification key and
+        which square it lit, in memory only, so it knows which light to turn off later. That is dropped
+        as soon as Android reports the notification gone — usually when you open or dismiss it — and it
+        is lost whenever the service or the phone restarts. When you change a square, the app rescans
+        the notifications currently on screen, not only ones arriving afterwards.</p>
+    <p>The only thing that leaves the app as a result of a notification is an instruction to Nothing's
+        Glyph service saying which of the six channels to light. It carries no name, no app and nothing
+        about the message.</p>
+
+    <h2>What is stored on your phone</h2>
+    <p>Callsign's own code writes a single file in the app's private storage, which no other app can
+        read. It holds two things:</p>
+    <ul>
+        <li><strong>Your squares:</strong> for each one, the square number, the names you typed or
+            picked, whether the light is steady or blinking, and — if you set an app filter — that
+            app's package name and label.</li>
+        <li><strong>Whether Pro is unlocked:</strong> a single true/false value, cached so the app
+            knows what you own when offline. Google Play remains the authority and is re-checked on
+            every launch.</li>
+    </ul>
+    <p>No message content, no phone numbers, no email addresses, no contact IDs, no history of who
+        messaged you and when, and no usage statistics.</p>
+    <p>Google's advertising and consent libraries inside the app keep their own separate state in the
+        app's private storage as well, including your ad-consent choice.</p>
+    <div class="note">The names you put on a square are usually other people's names, and they have not
+        been asked. They never leave your phone, but they are personal data about someone else, and you
+        are the one entering them. Use whatever form of a name you are comfortable storing.</div>
+
+    <h2>Picking someone from your contacts</h2>
+    <p>When you tap "Pick from contacts", Callsign does not read your address book. It has no contacts
+        permission at all — <code>READ_CONTACTS</code> is not requested anywhere in the app.</p>
+    <p>It opens Android's own contact picker instead. Your contacts stay inside that system screen and
+        the app is handed only the one contact you choose, from which it reads a single field: the
+        display name. You can skip the picker and type a name instead; the result is identical.</p>
+
+    <h2>Limiting a square to one app</h2>
+    <p>A square can be restricted to notifications from one app. To offer that list, Callsign asks
+        Android which installed apps have a launcher icon. It does not use the broad "query all
+        packages" permission. The list is built to fill a drop-down and is not kept; only the app you
+        choose is saved.</p>
+
+    <h2>Ads, and what Google's ad SDK collects and shares</h2>
+    <p>If you have not bought Pro, a banner sits along the bottom of the app's main screen, served by
+        Google's Mobile Ads SDK (AdMob), which is part of the app.</p>
+    <p>This is the main place where data about you leaves your phone. It goes to Google, not to us. We
+        receive only aggregated reporting from Google — how many ads were shown and what they earned,
+        broken down by things like country and device — never the individual identifiers or the raw
+        data Google collects.</p>
+    <p>Google publishes the list of what its Mobile Ads SDK collects. Everything on it is both
+        collected by Google and shared with third parties:</p>
+    <ul>
+        <li><strong>Your IP address</strong> — which Google may use to estimate roughly where your
+            device is.</li>
+        <li><strong>Your interactions with the app</strong> — including launches, taps and video
+            views.</li>
+        <li><strong>Diagnostic information</strong> — including app launch time, hang rate and energy
+            usage.</li>
+        <li><strong>Device and account identifiers</strong> — your Android advertising ID, your App set
+            ID, and other identifiers tied to accounts signed in on the device.</li>
+    </ul>
+    <p>Google says this is used for advertising, analytics, and fraud prevention and security, and that
+        it is encrypted in transit. Of that list, the advertising ID is the one item Google lets an app
+        suppress outright, and Callsign does not suppress it. Callsign also does not request
+        non-personalised ads and does not use Google's limited-ads mode. You can reset or delete your
+        advertising ID yourself in Android's settings.</p>
+    <p><strong>We cannot delete the data Google collects through the ad SDK, and we cannot retrieve it.</strong>
+        It is held by Google under
+        <a href="https://policies.google.com/privacy">Google's own privacy policy</a>, and any request
+        about it has to go to Google.</p>
+
+    <h2>Consent in the UK and EEA</h2>
+    <p>If you are in the UK or the EEA, ads cannot be personalised until you have answered a consent
+        form. Callsign uses Google's User Messaging Platform for this, and no ad is requested until
+        Google's SDK reports that requesting one is allowed. Where you have answered before, the app
+        relies on your stored answer rather than rechecking with Google first.</p>
+    <p>You can change your answer while you are still being shown ads: open the menu and choose "Ad
+        privacy settings". That item is not available once you have bought Pro, because the app no
+        longer contacts Google's consent SDK at all. Buying Pro stops any further ad being requested,
+        but it does not erase an answer you already gave — that stays stored in the app until you clear
+        the app's data or uninstall it.</p>
+
+    <h2>If you buy Pro</h2>
+    <p>Pro is a single payment, not a subscription, sold through Google Play Billing. The payment
+        happens inside Google Play; Callsign never sees your card details, your name or your billing
+        address. All the app receives is whether this Google account owns the product, which it asks
+        Google Play on every launch — so a refund takes Pro away again, and reinstalling restores it.</p>
+    <p>When Pro is unlocked the app does not initialise the ads SDK, does not ask for an ad, and does
+        not show the consent form. A small part of Google's ads library is still started automatically
+        by Android when the app's process starts, because the library registers a start-up component in
+        the app's manifest whether or not ads are ever requested.</p>
+
+    <h2>Permissions in the installed app</h2>
+    <p>Callsign itself declares almost nothing. Most permissions in the installed app arrive with
+        Google's advertising and billing libraries, along with background components those libraries
+        register — a start-up provider and background job and alarm schedulers. If you inspect the app
+        you will see network, wake-lock, foreground-service, billing and advertising-ID permissions.
+        They belong to those libraries. None of them is used to send anything about your notifications.</p>
+
+    <h2>Backups, and moving to a new phone</h2>
+    <p>The file holding your squares — and the Pro flag with it — is deliberately excluded from
+        Android's cloud backup and from device-to-device transfer, so the names of the people you watch
+        for do not leave the phone that way. The rest of the app's stored data, which is the Google ad
+        and consent libraries' own settings, is not excluded, so your ad-consent answer can travel to a
+        new phone even though your squares do not.</p>
+    <p>A new phone therefore starts empty and you re-enter your squares. Notification access also has
+        to be granted again: it is a device-level permission Android does not transfer. Pro is
+        unaffected — a restored install rechecks Google Play and unlocks from your purchase.</p>
+
+    <h2>Keeping and deleting data</h2>
+    <p>Everything Callsign stores lives in the app's private storage and stays there until you remove
+        it. Clearing the app's data or uninstalling the app deletes all of it, including your squares
+        and your stored ad-consent answer. There is nothing to delete at our end, because we never
+        receive it. Data Google has collected through the ad SDK is Google's to handle, as above.</p>
+
+    <h2>Children</h2>
+    <p>Callsign is not directed at children and is not designed for them. Nothing you enter in the app
+        — including the names of the people you watch for — is ever sent to us; it stays on your phone.
+        The only data about you that leaves the phone goes to Google, as described above.</p>
+
+    <h2>Who is responsible for what</h2>
+    <p>For the information held on your phone, you are the one who decides what goes in and what is
+        removed, and we never receive it. For the advertising data described above, Google is the party
+        collecting and using it, under its own privacy policy. In the UK and EEA, personalised
+        advertising relies on the consent you give through the form described above, and you can
+        withdraw it there.</p>
+
+    <h2>Changes</h2>
+    <p>If this policy changes, the date at the top of this page changes with it. Material changes will
+        be noted in the app's release notes on Google Play.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about this policy or about the app: <a href="mailto:hello@halfurness.com">hello@halfurness.com</a>.</p>
+
+    <footer>
+        <p><a href="/">halfurness.com</a></p>
+    </footer>
+</main>
+</body>
+</html>
