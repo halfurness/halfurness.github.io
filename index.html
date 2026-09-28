@@ -1,81 +1,127 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hal Furness</title>
+    <meta name="description" content="Hal Furness, software engineer. Apps and tools for Chrome, Android and the terminal.">
+    <meta name="theme-color" content="#0c0320">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Doto:wght@900&family=IBM+Plex+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="hub.css">
+    <script src="glyphfield.js" defer></script>
 </head>
 <body>
-    <main class="hub">
-        <header class="hub-header">
-            <h1>Hal Furness</h1>
-            <p>Software engineer, I build stuff</p>
-        </header>
-        <div class="project-grid">
-            <a href="https://chromewebstore.google.com/detail/spreadsheet-pro/mfaddbabdmpikbcimagokbdkhiomoipn" class="project-card" target="_blank" rel="noopener noreferrer">
-                <div class="project-icon sheets-icon-bg">
-                    <img src="/spreadsheet-pro-icon.png" alt="Spread Sheet Pro" class="sheets-icon-img">
-                </div>
-                <div class="project-info">
-                    <h2>Spread Sheet Pro</h2>
-                    <p>Chrome extension to increase productivity in Google Sheets</p>
-                </div>
-                <span class="material-icons platform-icon" title="Chrome Extension">extension</span>
-                <span class="material-icons project-arrow">open_in_new</span>
-            </a>
-            <div class="project-card disabled">
-                <svg class="project-icon" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="56" height="56" fill="#0b0b0b"/>
-                    <rect x="18" y="10" width="20" height="15" fill="#2dd4bf"/>
-                    <rect x="19.25" y="32.25" width="17.5" height="12.5" fill="none" stroke="#6b6b6b" stroke-width="2.5"/>
-                </svg>
-                <div class="project-info">
-                    <h2>Callsign</h2>
-                    <p>Per-contact Glyph Bar lights for the Nothing Phone (4a)</p>
-                </div>
-                <span class="material-icons platform-icon" title="Android">android</span>
-                <span class="badge">Coming soon</span>
-            </div>
-            <div class="project-card disabled">
-                <img src="/crumble/icon.png" alt="Crumble" class="project-icon">
-                <div class="project-info">
-                    <h2>Crumble</h2>
-                    <p>Recipe manager on Android & web</p>
-                </div>
-                <div class="platform-icons">
-                    <span class="material-icons platform-icon" title="Android">android</span>
-                    <span class="material-icons platform-icon" title="Web">language</span>
-                </div>
-                <span class="badge">Coming soon</span>
-            </div>
-            <div class="project-card disabled">
-                <span class="material-icons project-icon-placeholder">local_gas_station</span>
-                <div class="project-info">
-                    <h2>Fuelscout</h2>
-                    <p>UK fuel price finder for Android</p>
-                </div>
-                <span class="material-icons platform-icon" title="Android">android</span>
-                <span class="badge">Coming soon</span>
-            </div>
-            <div class="project-card disabled">
-                <svg class="project-icon" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="56" height="56" fill="#000"/>
-                    <rect x="4" y="4" width="48" height="48" fill="none" stroke="#d946ef" stroke-width="3"/>
-                    <text x="28" y="34" text-anchor="middle" font-family="'Courier New', monospace" font-size="20" font-weight="bold" fill="#e2dff0">TW</text>
-                </svg>
-                <div class="project-info">
-                    <h2>TreeWork</h2>
-                    <p>Terminal UI for git worktree management, built in Go</p>
-                </div>
-                <span class="material-icons platform-icon" title="CLI tool">terminal</span>
-                <span class="badge">Coming soon</span>
-            </div>
+    <canvas class="field" id="field" aria-hidden="true"></canvas>
+
+    <header class="welcome" id="welcome">
+        <div class="topbar">
+            <span>halfurness.com</span>
+            <a href="https://github.com/halfurness" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
         </div>
-    </main>
+        <div class="intro">
+            <h1>Hal Furness</h1>
+            <p class="tagline">Software engineer, I build stuff</p>
+            <a class="scroll-cue" href="#projects">Projects ↓</a>
+        </div>
+    </header>
+
+    <div class="panel">
+        <main class="hub" id="projects">
+            <div class="section-head">
+                <h2>Projects</h2>
+                <span>1 live · 4 coming soon</span>
+            </div>
+            <ul class="projects">
+                <li>
+                    <a href="https://chromewebstore.google.com/detail/spreadsheet-pro/mfaddbabdmpikbcimagokbdkhiomoipn" class="project" target="_blank" rel="noopener noreferrer">
+                        <div class="project-icon sheets-icon-bg">
+                            <img src="spreadsheet-pro-icon.png" alt="" class="sheets-icon-img">
+                        </div>
+                        <div class="project-info">
+                            <h3>Spread Sheet Pro</h3>
+                            <p>Chrome extension to increase productivity in Google Sheets</p>
+                        </div>
+                        <div class="project-meta">
+                            <span class="tag">Chrome extension</span>
+                            <span class="status">Open ↗</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <div class="project disabled">
+                        <svg class="project-icon" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <rect width="56" height="56" fill="#0b0b0b"/>
+                            <rect x="18" y="10" width="20" height="15" fill="#2dd4bf"/>
+                            <rect x="19.25" y="32.25" width="17.5" height="12.5" fill="none" stroke="#6b6b6b" stroke-width="2.5"/>
+                        </svg>
+                        <div class="project-info">
+                            <h3>Callsign</h3>
+                            <p>Per-contact Glyph Bar lights for the Nothing Phone (4a)</p>
+                        </div>
+                        <div class="project-meta">
+                            <span class="tag">Android</span>
+                            <span class="badge">Coming soon</span>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="project disabled">
+                        <img src="crumble/icon.png" alt="" class="project-icon">
+                        <div class="project-info">
+                            <h3>Crumble</h3>
+                            <p>Recipe manager on Android &amp; web</p>
+                        </div>
+                        <div class="project-meta">
+                            <span class="tag">Android · Web</span>
+                            <span class="badge">Coming soon</span>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="project disabled">
+                        <svg class="project-icon" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <rect width="56" height="56" fill="#0b0b0b"/>
+                            <rect x="14.25" y="13.25" width="18.5" height="29.5" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
+                            <rect x="18" y="17" width="11" height="8" fill="#f59e0b"/>
+                            <path d="M32.75 21.25h5v15.5a2.75 2.75 0 0 0 5.5 0V23l-3.5-3.5" fill="none" stroke="#6b6b6b" stroke-width="2.5"/>
+                            <rect x="11" y="42.75" width="25" height="2.5" fill="#6b6b6b"/>
+                        </svg>
+                        <div class="project-info">
+                            <h3>Fuelscout</h3>
+                            <p>UK fuel price finder for Android</p>
+                        </div>
+                        <div class="project-meta">
+                            <span class="tag">Android</span>
+                            <span class="badge">Coming soon</span>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="project disabled">
+                        <svg class="project-icon" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <rect width="56" height="56" fill="#000"/>
+                            <rect x="4" y="4" width="48" height="48" fill="none" stroke="#d946ef" stroke-width="3"/>
+                            <text x="28" y="34" text-anchor="middle" font-family="'Courier New', monospace" font-size="20" font-weight="bold" fill="#e2dff0">TW</text>
+                        </svg>
+                        <div class="project-info">
+                            <h3>TreeWork</h3>
+                            <p>Terminal UI for git worktree management, built in Go</p>
+                        </div>
+                        <div class="project-meta">
+                            <span class="tag">Go · Terminal</span>
+                            <span class="badge">Coming soon</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </main>
+        <footer class="foot">
+            <span>© 2026 Hal Furness</span>
+            <a href="https://github.com/halfurness" target="_blank" rel="noopener noreferrer">github.com/halfurness</a>
+        </footer>
+    </div>
 </body>
 </html>
