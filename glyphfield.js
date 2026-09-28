@@ -144,6 +144,7 @@
     bg: '#0c0320',
     colors: ['#2a0b52', '#8a1fbf', '#ff2a8a', '#ffd166'],
     glow: true,
+    speed: 0.7,
     // Landscape: sit the torus right of centre so the name has room bottom-left.
     origin: (w, h) => (w / h > 1.2 ? [0.64, 0.46] : [0.5, 0.4]),
     watch: document.getElementById('welcome'),
