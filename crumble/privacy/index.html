@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crumble — Privacy Policy</title>
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Doto:wght@900&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/hub.css">
+    <style>
+        .doc { max-width: 720px; margin: 0 auto; padding: 64px 24px; }
+        .doc h1 { font-size: 36px; font-weight: 700; margin-bottom: 4px; }
+        .doc .sub { color: var(--muted); font-size: 16px; margin-bottom: 40px; }
+        .doc h2 { font-size: 20px; font-weight: 700; margin: 40px 0 12px; }
+        .doc p { margin-bottom: 14px; }
+        .doc ul { margin: 0 0 14px 20px; }
+        .doc li { margin-bottom: 8px; }
+        .doc a { color: var(--accent); }
+        .doc .note {
+            border-left: 3px solid var(--border);
+            background: var(--surface);
+            padding: 14px 18px;
+            margin: 18px 0;
+            color: var(--muted);
+        }
+        .doc footer { margin-top: 56px; color: var(--muted); font-size: 14px; }
+    </style>
+</head>
+<body>
+<main class="doc">
+    <h1>Crumble</h1>
+    <p class="sub">Privacy policy · last updated 2 October 2026</p>
+
+    <p>Crumble is an Android app for keeping your recipes: you type them in, import them from a web
+        page or from Paprika, and cook from them. There is also a small web viewer at
+        <a href="/crumble/">halfurness.com/crumble</a> that reads a backup you have made.</p>
+    <p>This policy describes Crumble as it is actually built, not how apps of this kind usually work.
+        It is published by Hal Furness.</p>
+
+    <h2>The short version</h2>
+    <ul>
+        <li>Your recipes live on your phone. There are no Crumble accounts and no server of ours, so
+            we never receive your recipes, your photos or anything else you put in the app.</li>
+        <li>Importing a recipe from a web page makes your phone fetch that page directly from the site
+            it is on.</li>
+        <li>Google Drive backup is optional and part of Pro. It copies your recipes into your own
+            Google Drive, where they are not encrypted by Crumble.</li>
+        <li>The app makes two kinds of request to Google on its own: asking Google Play what you have
+            bought, and — unless you have bought Pro — requesting ads. The advertising one collects a
+            substantial amount about your device. It is listed in full below.</li>
+    </ul>
+
+    <h2>What is stored on your phone</h2>
+    <p>Everything you put into Crumble is kept in the app's private storage, which no other app can
+        read:</p>
+    <ul>
+        <li><strong>Your recipes:</strong> title, description, ingredients, instructions, times,
+            servings, category, tags, notes, nutrition text, the source link if there is one, and
+            whether it is a favourite.</li>
+        <li><strong>Recipe photos:</strong> when you add a photo, Crumble opens Android's own file
+            picker and copies the one image you choose into its private storage. It has no
+            permission to browse your photos or files, and no camera permission.</li>
+        <li><strong>Your settings:</strong> theme, your category list, and how the recipe list is
+            sorted and laid out.</li>
+        <li><strong>Whether Pro is unlocked:</strong> a single true/false value, cached so the app
+            knows what you own when offline. Google Play remains the authority and is re-checked on
+            every launch.</li>
+    </ul>
+    <p>Crumble has no analytics, no crash reporting and no usage tracking of its own.</p>
+    <p>Google's advertising, consent and sign-in libraries inside the app keep their own separate
+        state in the app's private storage as well, including your ad-consent choice and, if you use
+        Drive backup, the Google account you signed in with.</p>
+
+    <h2>Importing a recipe from a web page</h2>
+    <p>When you paste a link and tap import, your phone requests that page directly from the website
+        it belongs to, and then the recipe's main picture if the page names one. Nothing goes through
+        us. The website sees what any website sees when you visit it — your IP address and a
+        browser-style identifier that includes the word "Crumble" — and nothing else about you or
+        your recipe collection.</p>
+    <p>The page is read on your phone to find the recipe, the picture is saved into the app's private
+        storage, and the link is kept with the recipe as its source. The app only fetches pages you
+        ask it to.</p>
+
+    <h2>Importing and sharing recipe files</h2>
+    <p>You can open a Crumble or Paprika recipe file in the app, or pick a Paprika export in
+        Settings. The app reads the one file you give it, on your phone.</p>
+    <p>Sharing a recipe writes it to a temporary file and hands it to Android's share sheet. Where it
+        goes after that is up to you and the app you choose to send it with. The temporary file is
+        cleared the next time you share something.</p>
+
+    <h2>Google Drive backup (Pro)</h2>
+    <p>Backup is off until you turn it on by signing in with a Google account in Settings. Signing in
+        is handled by Google; Crumble receives your email address and display name, shows them on the
+        Settings screen, and does not send them anywhere.</p>
+    <p>Crumble asks Google for two permissions: to manage the files it creates itself in your Drive,
+        and to use its own hidden app-data area. It cannot see the rest of your Drive.</p>
+    <p>When you tap Backup, the app uploads one file — <code>crumble_backup.json</code>, in a folder
+        called "Crumble Backups" in your own Drive — containing all your recipes and their photos.
+        It goes straight from your phone to Google. We never receive it and cannot read it.</p>
+    <div class="note">The backup file is not encrypted by Crumble. It is protected by your Google
+        account in the same way as anything else in your Drive, and anyone you share that folder
+        with can read it.</div>
+    <p>Restore downloads that file back to the phone. "Delete backup" removes it from Drive. Signing
+        out in the app stops it using your account on that phone; to withdraw Crumble's access
+        entirely, remove it under "Third-party apps and services" in your Google account. The
+        backup file stays in your Drive until you delete it.</p>
+
+    <h2>The web viewer</h2>
+    <p>The page at <a href="/crumble/">halfurness.com/crumble</a> lets you read a backup in a browser.
+        You sign in with Google and grant it read-only access to your Drive. That permission is
+        broader than the app's — Google offers nothing narrower for reading a file another app
+        created — but the viewer's code only looks for the "Crumble Backups" folder and reads the
+        backup file inside it.</p>
+    <p>The file is downloaded straight from Google into your browser and displayed there. It is not
+        sent to us; the site is a static page with no server-side code and no analytics. Your sign-in
+        token is kept only for the browser session and is revoked when you sign out. The page loads
+        Google's sign-in script and fonts from Google, so Google sees those requests.</p>
+
+    <h2>Ads, and what Google's ad SDK collects and shares</h2>
+    <p>If you have not bought Pro, a banner sits along the bottom of the recipe list, served by
+        Google's Mobile Ads SDK (AdMob), which is part of the app.</p>
+    <p>This is the main place where data about you leaves your phone. It goes to Google, not to us. We
+        receive only aggregated reporting from Google — how many ads were shown and what they earned,
+        broken down by things like country and device — never the individual identifiers or the raw
+        data Google collects. Nothing from your recipes is passed to the ad SDK.</p>
+    <p>Google publishes the list of what its Mobile Ads SDK collects. Everything on it is both
+        collected by Google and shared with third parties:</p>
+    <ul>
+        <li><strong>Your IP address</strong> — which Google may use to estimate roughly where your
+            device is.</li>
+        <li><strong>Your interactions with the app</strong> — including launches, taps and video
+            views.</li>
+        <li><strong>Diagnostic information</strong> — including app launch time, hang rate and energy
+            usage.</li>
+        <li><strong>Device and account identifiers</strong> — your Android advertising ID, your App set
+            ID, and other identifiers tied to accounts signed in on the device.</li>
+    </ul>
+    <p>Google says this is used for advertising, analytics, and fraud prevention and security, and that
+        it is encrypted in transit. Of that list, the advertising ID is the one item Google lets an app
+        suppress outright, and Crumble does not suppress it. Crumble also does not request
+        non-personalised ads and does not use Google's limited-ads mode. You can reset or delete your
+        advertising ID yourself in Android's settings.</p>
+    <p><strong>We cannot delete the data Google collects through the ad SDK, and we cannot retrieve it.</strong>
+        It is held by Google under
+        <a href="https://policies.google.com/privacy">Google's own privacy policy</a>, and any request
+        about it has to go to Google.</p>
+
+    <h2>Consent in the UK and EEA</h2>
+    <p>If you are in the UK or the EEA, ads cannot be personalised until you have answered a consent
+        form. Crumble uses Google's User Messaging Platform for this, and no ad is requested until
+        Google's SDK reports that requesting one is allowed. Where you have answered before, the app
+        relies on your stored answer rather than rechecking with Google first.</p>
+    <p>You can change your answer while you are still being shown ads: open Settings and choose "Ad
+        privacy choices". That item is not available once you have bought Pro, because the app no
+        longer contacts Google's consent SDK at all. Buying Pro stops any further ad being requested,
+        but it does not erase an answer you already gave — that stays stored in the app until you clear
+        the app's data or uninstall it.</p>
+
+    <h2>If you buy Pro</h2>
+    <p>Pro is a single payment, not a subscription, sold through Google Play Billing. It removes the
+        ads, lifts the 50-recipe limit of the free version and unlocks Google Drive backup. The payment
+        happens inside Google Play; Crumble never sees your card details, your name or your billing
+        address. All the app receives is whether this Google account owns the product, which it asks
+        Google Play on every launch — so a refund takes Pro away again, and reinstalling restores it.
+        Recipes you already have are never removed or locked if that happens.</p>
+    <p>When Pro is unlocked at launch the app does not initialise the ads SDK, does not ask for an ad,
+        and does not show the consent form. A small part of Google's ads library is still started
+        automatically by Android when the app's process starts, because the library registers a
+        start-up component in the app's manifest whether or not ads are ever requested.</p>
+
+    <h2>Permissions in the installed app</h2>
+    <p>Crumble itself asks for one permission: internet access, which it uses for web import, Drive
+        backup, Google Play and ads. The other permissions in the installed app arrive with Google's
+        advertising and billing libraries — network state, wake-lock, foreground-service, billing and
+        advertising-ID permissions. None of them is used to send anything about your recipes.</p>
+    <p>Cooking mode can keep the screen on and lets you move between sections with a wave of the
+        hand, using the phone's proximity sensor. The sensor reading is used in the moment and is never stored or
+        sent.</p>
+
+    <h2>Backups, and moving to a new phone</h2>
+    <p>Crumble is excluded from Android's own cloud backup, so your recipes are not copied to Google
+        that way. A direct phone-to-phone transfer while setting up a new phone may still carry the
+        app's data across; otherwise a new phone starts empty. To move your recipes yourself, use
+        Drive backup and restore, or share them as files. Pro is unaffected — a new install rechecks
+        Google Play and unlocks from your purchase.</p>
+
+    <h2>Keeping and deleting data</h2>
+    <p>Everything Crumble stores lives in the app's private storage and stays there until you remove
+        it. Deleting a recipe removes it from the app; clearing the app's data or uninstalling the app
+        deletes everything, including your stored ad-consent answer. A Drive backup is yours and stays
+        in your Drive until you delete it, from the app or from Drive itself. There is nothing to
+        delete at our end, because we never receive any of it. Data Google has collected through the
+        ad SDK is Google's to handle, as above.</p>
+
+    <h2>Children</h2>
+    <p>Crumble is not directed at children. Nothing you enter in the app is ever sent to us. The only
+        data about you that leaves the phone without you asking for it goes to Google, as described
+        above.</p>
+
+    <h2>Who is responsible for what</h2>
+    <p>For the information held on your phone and in your Drive, you are the one who decides what goes
+        in and what is removed, and we never receive it. For the advertising data described above,
+        Google is the party collecting and using it, under its own privacy policy. In the UK and EEA,
+        personalised advertising relies on the consent you give through the form described above, and
+        you can withdraw it there.</p>
+
+    <h2>Changes</h2>
+    <p>If this policy changes, the date at the top of this page changes with it. Material changes will
+        be noted in the app's release notes on Google Play.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about this policy or about the app: <a href="mailto:hello@halfurness.com">hello@halfurness.com</a>.</p>
+
+    <footer>
+        <p><a href="/">halfurness.com</a></p>
+    </footer>
+</main>
+</body>
+</html>
